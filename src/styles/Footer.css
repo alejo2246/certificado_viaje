@@ -27,7 +27,7 @@
 .footer .social-icons li, footer .menu li {
     list-style: none;
 }
-.footer .social-icons li a, footer .menu li a {
+.footer .social-icons li a {
     font-size: 2em;
     color: #fff;
     margin: 0 10px;
@@ -37,6 +37,6 @@
 .footer .social-icons li a:hover{
     transform: translateY(-10px);
 }
-.menu{
-
+.footer .menu li a{
+    font-size: 1.2em;
 }
