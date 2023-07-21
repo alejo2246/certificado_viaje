@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "../styles/Navbar.css";
 import "animate.css";
+import { Link } from "react-scroll";
+
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -35,12 +37,17 @@ const Navbar = () => {
     >
       <div className="flex items-center md:justify-center  lg:justify-center xlg:justify-center 2xlg:justify-center justify-between px-4 py-2 gap-10  ">
         {/* Logo */}
-        <a
-          className="text-white justify-self-start animate__animated animate__fadeIn animate__delay-1s"
-          href="/"
+        <Link
+          activeClass="text-black"
+          to="home"
+          spy={true}
+          smooth={true}
+          offset={-70} // Ajusta el valor según la altura de tu navbar o margen superior
+          duration={1000}
+          className="text-white justify-self-start animate__animated animate__fadeIn animate__delay-1s cursor-pointer"
         >
           <img src="/img/cer.png" alt="" width="150px" />
-        </a>
+        </Link>
 
         {/* Mobile Menu Button */}
         <button
@@ -53,38 +60,50 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-4">
           <ul className="flex space-x-36">
-            <li>
-              <a href="#formvalidar">
-                <p
-                  className={`animate__animated animate__fadeIn animate__delay-2s transition-all duration-1000 font-bold text-xl text-center hover:scale-105 ${
-                    scrolled ? "text-black" : "text-white"
-                  }`}
-                >
-                  Validar mi Viaje
-                </p>
-              </a>
+            <li className="hover:scale-105">
+              <Link
+                activeClass="text-black"
+                to="about"
+                spy={true}
+                smooth={true}
+                offset={-70} // Ajusta el valor según la altura de tu navbar o margen superior
+                duration={1000}
+                className={`cursor-pointer animate__animated animate__fadeIn animate__delay-2s transition-all duration-1000 font-bold text-xl text-center hover:scale-105 ${
+                  scrolled ? "text-black" : "text-white"
+                }`}
+              >
+                ¿Cómo validar?
+              </Link>
             </li>
-            <li>
-              <a href="#">
-                <p
-                  className={`animate__animated animate__fadeIn animate__delay-2s transition-all duration-1000 font-bold text-xl text-center hover:scale-105 ${
-                    scrolled ? "text-black" : "text-white"
-                  }`}
-                >
-                  Crédito para Viajes
-                </p>
-              </a>
+            <li className="hover:scale-105">
+              <Link
+                activeClass="text-black"
+                to="about"
+                spy={true}
+                smooth={true}
+                offset={-70} // Ajusta el valor según la altura de tu navbar o margen superior
+                duration={1000}
+                className={`cursor-pointer animate__animated animate__fadeIn animate__delay-2s transition-all duration-1000 font-bold text-xl text-center hover:scale-105 ${
+                  scrolled ? "text-black" : "text-white"
+                }`}
+              >
+                Validar mi viaje
+              </Link>
             </li>
-            <li>
-              <a href="#">
-                <p
-                  className={`animate__animated animate__fadeIn animate__delay-2s transition-all duration-1000 font-bold text-xl text-center hover:scale-105 ${
-                    scrolled ? "text-black" : "text-white"
-                  }`}
-                >
-                  Vip Vacaciones
-                </p>
-              </a>
+            <li className="hover:scale-105">
+              <Link
+                activeClass="text-black"
+                to="gallery"
+                spy={true}
+                smooth={true}
+                offset={-70} // Ajusta el valor según la altura de tu navbar o margen superior
+                duration={1000}
+                className={`cursor-pointer animate__animated animate__fadeIn animate__delay-2s transition-all duration-1000 font-bold text-xl text-center hover:scale-105 ${
+                  scrolled ? "text-black" : "text-white"
+                }`}
+              >
+                Destinos
+              </Link>
             </li>
           </ul>
         </div>

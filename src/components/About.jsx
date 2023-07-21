@@ -1,17 +1,23 @@
-import { useEffect, useState } from "react";
 import CardStep from "./CardStep";
+import { useInView } from "react-intersection-observer";
+import "animate.css";
+
 const About = () => {
-  const [heightToOffset, setHeightToOffset] = useState(0);
-  useEffect(() => {
-    setHeightToOffset(window.innerHeight + 35);
-  }, []);
+  const { ref, inView } = useInView({
+    triggerOnce: true, // Solo activar una vez cuando el componente entra en la vista
+    threshold: 0.2, // Porcentaje de visibilidad del elemento para considerarse "en la vista"
+  });
   return (
     <section
-      className="w-full mx-auto"
+      className={`w-full mx-auto ${
+        inView
+          ? "animate__animated animate__fadeInUp animate__delay-1s"
+          : "animate__animated animate__fadeOut"
+      }`}
       id="about"
-      style={{ paddingTop: heightToOffset + "px" }}
+      style={{ paddingTop: "20px" }}
     >
-      <div className="text-center">
+      <div className="text-center" ref={ref}>
         <h1 className="text-4xl font-semibold mb-2">
           ¿Cómo funciona tu código de viaje?
         </h1>
