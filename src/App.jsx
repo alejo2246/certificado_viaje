@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import About from "./components/About";
 import ValidationArea from "./components/ValidationArea";
 import Galery from "./components/Galery";
+import Footer from "./components/Footer";
 export default function App() {
   return (
     <>
@@ -12,6 +13,7 @@ export default function App() {
       <About />
       <ValidationArea />      
       <Galery />
+      <Footer/>
     </>
   );
 }
