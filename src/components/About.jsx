@@ -1,8 +1,16 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import CardStep from "./CardStep";
 const About = () => {
+  const [heightToOffset, setHeightToOffset] = useState(0);
+  useEffect(() => {
+    setHeightToOffset(window.innerHeight + 35);
+  }, []);
   return (
-    <section className="w-full mx-auto" id="about">
+    <section
+      className="w-full mx-auto"
+      id="about"
+      style={{ paddingTop: heightToOffset + "px" }}
+    >
       <div className="text-center">
         <h1 className="text-4xl font-semibold mb-2">
           ¿Cómo funciona tu código de viaje?
@@ -11,7 +19,10 @@ const About = () => {
           Válido solo para clientes con un código de Vip Vacaciones.
         </p>
       </div>
-      <div className="flex justify-center items-center flex-wrap p-5 flex-row gap-4 flex-1" style={{height:"680px"}}>
+      <div
+        className="flex justify-center items-center flex-wrap p-5 flex-row gap-4 flex-1"
+        style={{ height: "680px" }}
+      >
         <CardStep
           step={1}
           subtitle={"Verifica tu código"}
