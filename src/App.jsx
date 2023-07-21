@@ -2,12 +2,16 @@ import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import About from "./components/About";
+import ValidationArea from "./components/ValidationArea";
+import Galery from "./components/Galery";
 export default function App() {
   return (
     <>
       <Navbar />
       <Home />
       <About />
+      <ValidationArea />      
+      <Galery />
     </>
   );
 }
