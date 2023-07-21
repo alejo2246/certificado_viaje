@@ -8,10 +8,12 @@ import Footer from "./components/Footer";
 export default function App() {
   return (
     <>
-      <Navbar />
-      <Home />
+      <div className="relative">
+        <Navbar />
+        <Home />
+      </div>
       <About />
-      <ValidationArea />      
+      <ValidationArea />
       <Galery />
       <Footer/>
     </>
