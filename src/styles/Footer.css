@@ -1,19 +1,11 @@
-.footerInfo{
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    min-height: 60vh;
-    background: #333;
+*{
+    font-family: 'Poppins', sans-serif;
 }
 .footer{
     position: relative;
     width: 100%;
     background:#3586ff;
-    min-height: 100px;
-    padding: 20px 50px;
     display: flex;
-    justify-content: center;
-    align-content: center;
     flex-direction: column;
 }
 .social-icons, footer .menu{
@@ -21,13 +13,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 30px;
+    margin: 10px;
     flex-wrap: wrap;
 }
 .footer .social-icons li, footer .menu li {
     list-style: none;
 }
-.footer .social-icons li a {
+.footer .social-icons li a{
     font-size: 2em;
     color: #fff;
     margin: 0 10px;
@@ -39,4 +31,83 @@
 }
 .footer .menu li a{
     font-size: 1.2em;
+    color: #fff;
+    margin: 0 10px;
+    display: inline-block;
+    text-decoration: none;
+    opacity: 0.75;
+}
+.footer .menu li a:hover{
+    opacity: 1;
+}
+.footer p{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-top:10px ;
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+.footerInfo {
+    display: flex;
+    justify-content: space-between; /* Add this property to space out the elements horizontally */
+    align-items:normal; /* Add this property to center the elements vertically */
+    flex-wrap: wrap; /* Add this property to wrap elements to the next line if they don't fit */
+    padding-bottom: 120px;
+    
+    
+  }
+.wave{
+    position: relative;
+    top:-40px;
+    height: 100px;
+}
+.aboutus, .contactUs,.logo {
+    flex: 1;
+
+}
+.aboutus{
+    position: relative;
+    color: #fff;;
+    font-size: 1.5em;
+    font-family: 'Poppins', sans-serif;
+    padding-left:50px;
+}
+.aboutus h2{
+    text-align: center;
+}
+.aboutus p{
+    text-align: justify;
+    font-size: medium ;
+    color: #ccc;
+}
+
+
+.contactUs{
+    position: relative;
+    align-items: center;
+    color: #fff;;
+
+    font-size: 1.5em;
+    font-family: 'Poppins', sans-serif;
+    padding-right: 50px;
+}
+.contactUs h2{
+    text-align: center;
+}
+.contactUs p{
+    text-align: justify;
+    justify-content: flex-start;
+    font-size: medium ;
+    color: #ccc;
+}
+.contactUs a{
+    font-size: .7em;
+}
+.logo{
+    scale: 0.65;
+    padding-left: 10px;
+    padding-right: 30px;
 }
