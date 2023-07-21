@@ -1,77 +1,81 @@
 .containerCard {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 100px 50px;
-    padding: 100px 20px;
-
-  }
-  .containerCard .card {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 350px;
-    height: 300px;
-    background: rgb(237, 230, 230);
-    border-radius: 20px;
-    border:1px solid #eee ;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    transition: 0.5s ease-in-out;
-  }
-  .containerCard .card:hover {
-    height: 350px;
-  }
-  .containerCard .card .imgBx {
-    position: absolute;
-    top: 20px;
-    width: 300px;
-    height: 220px;
-    background: #333;
-    border-radius: 12px;
-    overflow: hidden;
-    transition: 0.5s ease-in-out;
-  }
-  .containerCard .card:hover .imgBx {
-    top: -100px;
-    scale: 0.75;
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
-  }
-  .containerCard .card .imgBx img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .containerCard .card .content {
-    position: absolute;
-    top: 252px;
-    width: 100%;
-    padding: 0 30px;
-    height: 35px;
-    overflow: hidden;
-    text-align: center;
-    transition: 0.5s ease-in-out;
-  }
-  .containerCard .card:hover .content {
-    top: 150px;
-    height: 250px;
-  }
-  .containerCard .card .content h2 {
-    margin-bottom: 20px;
-    font-size: 1.5em;
-    font-weight: 700;
-    color: #000000;
-  }
-  .containerCard .card .content p {
-    color: #000000;
-  }
-.content{
-    text-align: center;
-    padding: 20px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 100px 50px;
+  padding: 100px 20px;
+  cursor: pointer;
+}
+.containerCard .card {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  height: 300px;
+  background: rgba(250, 249, 249, 0.699);
+  border-radius: 20px;
+  border: 1px solid #eee;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: 0.5s ease-in-out;
+}
+.containerCard .card:hover {
+  height: 350px;
+}
+.containerCard .card .imgBx {
+  position: absolute;
+  top: 20px;
+  width: 300px;
+  height: 220px;
+  background: #333;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: 0.5s ease-in-out;
+  background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el contenedor */
+  background-position: center center; /* Centra la imagen dentro del contenedor */
+  background-repeat: no-repeat;
+}
+.containerCard .card:hover .imgBx {
+  top: -100px;
+  scale: 0.75;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+}
+.containerCard .card .imgBx img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
 }
 
+.containerCard .card .content {
+  position: absolute;
+  top: 252px;
+  width: 100%;
+  padding: 0 30px;
+  height: 35px;
+  overflow: hidden;
+  text-align: center;
+  transition: 0.5s ease-in-out;
+}
+.containerCard .card:hover .content {
+  top: 150px;
+  height: 250px;
+}
+.containerCard .card .content h2 {
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  font-weight: 700;
+  color: #000000;
+}
+.containerCard .card .content p {
+  color: #000000;
+}
+.content {
+  text-align: center;
+  padding: 20px;
+}

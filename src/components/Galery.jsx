@@ -2,10 +2,10 @@ import React from "react";
 import "../styles/Gallery.css";
 const Galery = () => {
   return (
-    <div className="containerCard">
+    <div className="containerCard" id="gallery">
       <div className="card">
-        <div className="imgBx">
-          <img src="img/g1.jpg" alt="" />
+        <div className="imgBx" style={{ backgroundImage: "url(img/g1.jpg)" }}>
+          {/* <img src="img/g1.jpg" alt="" /> */}
         </div>
         <div className="content">
           <h2>Lorem, ipsum dolor.</h2>
@@ -33,7 +33,7 @@ const Galery = () => {
         </div>
         <div className="content">
           <h2>Lorem, ipsum dolor.</h2>
-          <p >
+          <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem,
             ducimus?
           </p>

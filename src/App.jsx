@@ -8,14 +8,16 @@ import Footer from "./components/Footer";
 export default function App() {
   return (
     <>
-      <div className="relative">
-        <Navbar />
-        <Home />
+      <div style={{ height: "100vh" }}>
+        <div className="relative">
+          <Navbar />
+          <Home />
+        </div>
       </div>
       <About />
       <ValidationArea />
       <Galery />
-      <Footer/>
+      <Footer />
     </>
   );
 }

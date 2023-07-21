@@ -17,31 +17,32 @@ const Home = () => {
     };
   }, []);
   return (
-    <section className="">
+    <section id="home">
       <img
-        className="absolute top-0 animate__animated animate__fadeIn animate__delay-4s"
+        className="absolute top-0 animate__animated animate__fadeIn animate__delay-4s scale-x-(-1)"
         src="/img/avion.png"
         style={{
           zIndex: "4",
           width: "51%",
           marginTop: "100px",
-          left: scrollValue * 1.1 + "px",
+          right: scrollValue * 1.1 + "px",
           top: scrollValue * -0.2 + "px",
+          transform: "scaleX(-1)",
         }}
       />
       <img
         className="absolute top-0 h-screen w-screen"
-        src="/img/paisaje.png"
+        src="/img/slider3.jpg"
       />
-      <img
+      {/* <img
         src="/img/road.png"
         style={{ zIndex: "3" }}
         className="absolute top-0 h-screen w-screen"
-      />
+      /> */}
       <h2
         className="absolute  left-1/3 text-white text-7xl font-extrabold animate__animated animate__fadeIn animate__delay-3s"
         style={{
-          top: scrollValue < 600 ? 70 + scrollValue + "px" : 70 + "px",
+          top: scrollValue < 600 ? 230 + scrollValue + "px" : 70 + "px",
         }}
       >
         Aquí inicia el viaje
