@@ -27,7 +27,7 @@ const About = () => {
       </div>
       <div
         className="flex justify-center items-center flex-wrap p-5 flex-row gap-4 flex-1"
-        style={{ height: "680px" }}
+        style={{ height: "" }}
       >
         <CardStep
           step={1}
@@ -36,6 +36,7 @@ const About = () => {
           description={
             "Utiliza tu código para verificar que eres cliente activo. Si tu código es válido, podrás ver el tiempo restante de activación y el producto adquirido. Además, tendras la opción de generar tu certificado de viaje."
           }
+          className="w-full sm:w-1/3"
         />
 
         <CardStep
@@ -45,6 +46,7 @@ const About = () => {
           description={
             "Cuando generas tu certificado de viaje, estás activando una reserva con VIP VACACIONES para el destino presente en tu código de viaje. Este certicado es personal. Recibirás una notificación con las vías de comunicación con nuestro departamento de reservas, donde podrás activar tu reserva. Una vez generado el certificado, tú código de viaje deja de ser válido."
           }
+          className="w-full sm:w-1/3"
         />
 
         <CardStep
@@ -54,6 +56,7 @@ const About = () => {
           description={
             "Nuestros certificados tienen un tiempo de validez, generalmente de un año o más, asegúrate de realizar tu reserva antes del vencimiento de la fecha presente en el certificado."
           }
+          className="w-full sm:w-1/3"
         />
       </div>
     </section>

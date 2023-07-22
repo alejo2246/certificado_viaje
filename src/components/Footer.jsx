@@ -4,6 +4,7 @@ import { BsInstagram } from "react-icons/bs";
 import { BsFacebook } from "react-icons/bs";
 import { BsYoutube } from "react-icons/bs";
 import Wave from "react-wavify";
+import { Link } from "react-scroll";
 
 const Footer = () => {
   return (
@@ -35,7 +36,10 @@ const Footer = () => {
         </div>
         <div className="contactUs">
           <h2>Contactanos</h2>
-          <p>Conecta con nosotros, sientete libre de contactarnos en cualquier momento, estamos a tu servicio.</p>
+          <p>
+            Conecta con nosotros, sientete libre de contactarnos en cualquier
+            momento, estamos a tu servicio.
+          </p>
           <a href="mailto:cliente@certificadodeviaje.com">
             cliente@certificadodeviaje.com
           </a>
@@ -60,17 +64,18 @@ const Footer = () => {
       </ul>
       <ul className="menu">
         <li>
-          <a href="#">Home</a>
+          <Link to="home">Home</Link>
         </li>
         <li>
-          <a href="#">About</a>
+          <Link to="about">About</Link>
         </li>
         <li>
-          <a href="#">Validate</a>
+          <Link to="formvalidar">Validate</Link>
         </li>
         <li>
-          <a href="#">Gallery</a>
+          <Link to="gallery">Gallery</Link>
         </li>
+
       </ul>
       <p> CERTIFICADO DE VIAJE | Copyright ©2023 All rights reserved. </p>
     </footer>

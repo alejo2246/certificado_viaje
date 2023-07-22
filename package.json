@@ -15,12 +15,12 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
-<<<<<<< HEAD
-    "react-wavify": "^1.8.3"
-=======
     "react-intersection-observer": "^9.5.2",
-    "react-scroll": "^1.8.9"
->>>>>>> 1b1ae0805543ec7ba8eca17a5723a96f315e0bf8
+    "react-modal": "^3.16.1",
+    "react-scroll": "^1.8.9",
+    "react-select": "^5.7.4",
+    "react-select-country-list": "^2.2.3",
+    "react-wavify": "^1.8.3"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

@@ -1,0 +1,164 @@
+.validateSection {
+  display: flex;
+  justify-content: center;
+  text-align: center; /* Cambiado a 'center' para centrar el contenido */
+  padding: 40px 0;
+}
+
+.title h3 {
+  font-size: 1.5em;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  padding: 20px;
+}
+
+.formValidate .inputCode {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  min-width: 400px;
+  display: inline-flex;
+  text-align: center;
+}
+
+.container {
+  max-width: 600px;
+  padding: 20px;
+}
+
+.container .validateButton {
+  margin-top: 20px;
+  display: inline-block; /* Cambiado a inline-block */
+  border: 1px solid #ddd;
+  background: #ddd;
+  border-radius: 12px;
+}
+
+.container .validateAnimation {
+  display: flex;
+  padding-top: 20px;
+  justify-content: center;
+}
+
+.validateButton .button {
+  position: relative;
+  display: inline-flex;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  padding: 10px;
+  font-weight: 500;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  min-width: 200px; /* Ajusta el valor según lo necesites */
+  opacity: 0.75;
+  transition: 0.5s ease-in-out;
+}
+.validateButton .button:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+.validateButton:hover {
+  background: #ccc;
+  transform: scale(1.1);
+  transition: 0.5s ease-in-out;
+}
+.validateButton {
+  transition: 0.5s ease-in-out;
+}
+
+.formValidate .inputCode.error {
+  border-color: #ff0000;
+}
+
+.errorMessage {
+  display: block;
+  color: #ff0000;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.validCertificateTitle {
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+}
+.vColor {
+  color: green;
+  font-weight: 0;
+  padding-left: 10px;
+}
+.validContainer {
+  padding: 20px;
+}
+.validButton {
+  position: relative;
+  display: inline-flex;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  padding: 5px;
+  font-weight: 500;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  min-width: 200px; /* Ajusta el valor según lo necesites */
+  opacity: 0.75;
+  transition: 0.5s ease-in-out;
+  display: inline-block; /* Cambiado a inline-block */
+  border: 1px solid #1eff00;
+  background: #1eff00;
+  border-radius: 12px;
+}
+.validButton:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+.validButton:hover {
+  background: #1eff00;
+  transform: scale(1.1);
+  transition: 0.5s ease-in-out;
+}
+.validButton {
+  transition: 0.5s ease-in-out;
+}
+.containerValidCertificate {
+  padding: 20px;
+}
+.containerUnvalidCertificate{
+    padding: 20px;
+}
+.unvalidCertificateTitle {
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+  }
+  .uvColor {
+    color: red;
+    font-weight: 0;
+    padding-left: 10px;
+  }
+  .unvalidContainer {
+    padding: 20px;
+  }
+  .modalTitle{
+    display: flex;
+    justify-content: center;
+  }
+  .formContainer{
+    display: flex;
+    
+  }
+  .errorFormMessage {
+    color: #ff0000;
+    font-size: 12px;
+    margin-left: 10px;
+  }
+  .errorEmailMessage {
+    color: #ff0000;
+    font-size: 12px;
+    margin-left: 10px;
+  }

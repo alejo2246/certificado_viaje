@@ -15,6 +15,7 @@
     align-items: center;
     margin: 10px;
     flex-wrap: wrap;
+    cursor: pointer;
 }
 .footer .social-icons li, footer .menu li {
     list-style: none;
