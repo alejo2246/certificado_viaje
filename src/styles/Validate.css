@@ -152,7 +152,12 @@
     display: flex;
     
   }
-  .errorFormMessage {
+  .errorNameMessage {
+    color: #ff0000;
+    font-size: 12px;
+    margin-left: 10px;
+  }
+  .errorLastNameMessage {
     color: #ff0000;
     font-size: 12px;
     margin-left: 10px;
@@ -161,4 +166,10 @@
     color: #ff0000;
     font-size: 12px;
     margin-left: 10px;
+  }
+  .submitBtCertificate{
+    background: #3586ff;
+  }
+  .submitBtCertificate:hover{ 
+    background: #246ad3;
   }
