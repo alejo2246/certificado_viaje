@@ -4,6 +4,7 @@ import Modal from "./Form";
 import Select from "react-select";
 import countryList from "react-select-country-list";
 import "../styles/Validate.css";
+import "animate.css";
 
 const ValidationArea = () => {
   const [inputCode, setInputCode] = useState("");
@@ -12,25 +13,58 @@ const ValidationArea = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [errorFormMessage, setErrorFormMessage] = useState("");
   const [errorEmailMessage, setErrorEmailMessage] = useState("");
+  const [showLoader, setShowLoader] = useState(false);
+  const [responseModel, setResponseModel] = useState({});
   const [showFire, setShowFire] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [value, setValue] = useState("");
   const options = useMemo(() => countryList().getData(), []);
+  const [isValidCode, setIsValidCode] = useState(false);
+  const [isInvalidCode, setIsInvalidCode] = useState(false);
 
   const handleValidation = (e) => {
     e.preventDefault();
+    setIsValidCode(false);
+    setIsInvalidCode(false);
     if (inputCode.trim() === "") {
       setErrorMessage("Ingresa un código antes de validar");
     } else {
-      // Aquí puedes agregar la lógica de validación adicional si es necesario
-      // Por ejemplo, puedes enviar el formulario al servidor o realizar otras verificaciones.
+      setShowLoader(true);
       setErrorMessage("");
-      setShowFire(true); // Mostrar los fuegos artificiales
+      fetch("https://app.certificadodeviaje.com/api/addCertificado", {
+        method: "POST", // Especificamos el método HTTP que se utilizará
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ key_code: inputCode }),
+      })
+        .then((response) => console.log(response))
+        .then((data) => {
+          setShowLoader(false);
+          if (data.success) {
+            setResponseModel({
+              tiempo: data.tiempo,
+              jefe: data.jefe,
+              certificado: data.certificado,
+              producto: data.producto,
+              expiracion: data.expiracion,
+            });
+            setIsValidCode(true);
+            setShowFire(true);
 
-      // Después de 5 segundos, ocultar los fuegos artificiales
-      setTimeout(() => {
-        setShowFire(false);
-      }, 5000);
+            setTimeout(() => {
+              setShowFire(false);
+            }, 6500);
+          } else {
+            setIsInvalidCode(true);
+            setResponseModel({
+              error: data.errors,
+              detail: data.detalle,
+            });
+          }
+          console.log(data);
+        })
+        .catch((err) => console.error(err));
     }
   };
 
@@ -74,16 +108,11 @@ const ValidationArea = () => {
           }}
         />
       )}
-      <div className="container">
+      <div className="containerValidate">
         <div className="title">
           <h3>Valida tu código de viaje</h3>
         </div>
-        <form
-          className="formValidate"
-          id="myForm"
-          action="validar.php"
-          method="post"
-        >
+        <form className="formValidate" id="myForm" method="post">
           <div className="inputContainer">
             <input
               className={`inputCode ${errorMessage ? "error" : ""}`}
@@ -100,75 +129,100 @@ const ValidationArea = () => {
               <span className="errorMessage">{errorMessage}</span>
             )}
           </div>
-          <div className="validateButton">
-            <button
-              id="submitBtValidation"
-              className="button"
-              onClick={handleValidation}
-              action="validar.php"
-              method="post"
-            >
-              <span className="">VALIDAR CÓDIGO</span>
-            </button>
-          </div>
-          <div className="validateAnimation" id="loadingmask">
-            Validando...
-          </div>
+          <button
+            className={`submitBtValidation button ${
+              showLoader ? "hidden" : ""
+            }`}
+            onClick={() => handleValidation(event)}
+          >
+            VALIDAR CÓDIGO
+          </button>
         </form>
-        <div id="validationinfo" className="containerValidCertificate">
-          <div className="container">
-            <div className="validCertificateTitle">
-              <h3 className="">Validez del certificado:</h3>
-              <p className="vColor" id="cert_validez">
-                VÁLIDO.
-              </p>
-            </div>
-            <div className="validCertificateTitle">
-              <h3 className="">Fecha de caducidad:</h3>
-              <p className="vColor">
-                <span id="cert_time">730 días.</span>
-              </p>
-            </div>
-            <div className="validCertificateTitle">
-              <h3 className="">Producto adquirido:</h3>
-              <p>
-                <span className="vColor" id="cert_item">
-                  3 Noches Miami.
-                </span>
-              </p>
-            </div>
-            <div className="validContainer">
-              <button
-                onClick={() => setShowModal(true)}
-                id="_btn_generar_certificado"
-                className="validButton"
-              >
-                <span className="buttonSpan">GENERAR CERTIFICADO</span>
-              </button>
-            </div>
-            <div className="">
-              Al generar tu certificado tu código será activado y no podrá
-              volverse a usar. Tu certificado será valido para su uso en nuestro
-              sistema de reservas.
+        <section className={`sectionLoader ${!showLoader ? "hidden" : ""}`}>
+          <div className="loaderValidarCode">
+            <span style={{ "--var": "1" }}> </span>
+            <span style={{ "--var": "2" }}></span>
+            <span style={{ "--var": "3" }}></span>
+            <span style={{ "--var": "4" }}></span>
+            <span style={{ "--var": "5" }}></span>
+            <span style={{ "--var": "6" }}></span>
+            <span style={{ "--var": "7" }}></span>
+            <span style={{ "--var": "8" }}></span>
+            <span style={{ "--var": "9" }}></span>
+            <span style={{ "--var": "10" }}></span>
+            <span style={{ "--var": "11" }}></span>
+            <span style={{ "--var": "12" }}></span>
+            <span style={{ "--var": "13" }}></span>
+            <span style={{ "--var": "14" }}></span>
+            <span style={{ "--var": "15" }}></span>
+            <span style={{ "--var": "16" }}></span>
+            <span style={{ "--var": "17" }}></span>
+            <span style={{ "--var": "18" }}></span>
+            <span style={{ "--var": "19" }}></span>
+            <span style={{ "--var": "20" }}></span>
+          </div>
+        </section>
+        {isValidCode && (
+          <div id="validationinfo" className="containerValidCertificate">
+            <div className="container">
+              <div className="validCertificateTitle">
+                <h3 className="">Validez del certificado:</h3>
+                <p className="vColor" id="cert_validez">
+                  {responseModel.certificado}
+                </p>
+              </div>
+              <div className="validCertificateTitle">
+                <h3 className="">Fecha de caducidad:</h3>
+                <p className="vColor">
+                  <span id="cert_time">{responseModel.expiracion}</span>
+                </p>
+              </div>
+              <div className="validCertificateTitle">
+                <h3 className="">Producto adquirido:</h3>
+                <p>
+                  <span className="vColor" id="cert_item">
+                    {responseModel.producto}
+                  </span>
+                </p>
+              </div>
+              <div className="validContainer">
+                <button
+                  onClick={() => setShowModal(true)}
+                  id="_btn_generar_certificado"
+                  className="validButton "
+                >
+                  <span className="buttonSpan">GENERAR CERTIFICADO</span>
+                </button>
+              </div>
+              <div className="">
+                Al generar tu certificado tu código será activado y no podrá
+                volverse a usar. Tu certificado será valido para su uso en
+                nuestro sistema de reservas.
+              </div>
             </div>
           </div>
-        </div>
-        <div id="validationinfo" className="containerUnvalidCertificate">
-          <div className="container">
-            <div className="unvalidCertificateTitle">
-              <h3>Validez del certificado:</h3>
-              <p className="uvColor" id="cert_validez">
-                CERTIFICADO NO VÁLIDO.
-              </p>
-            </div>
-            <div className="unvalidCertificateTitle">
-              <h3>Motivo:</h3>
-              <p className="uvColor">
-                <span id="cert_no">730 días.</span>
-              </p>
+        )}
+        {isInvalidCode && (
+          <div
+            id="validationinfo"
+            className="containerUnvalidCertificate hidden"
+          >
+            <div className="container">
+              <div className="unvalidCertificateTitle">
+                <h3>Validez del certificado:</h3>
+                <p className="uvColor" id="cert_validez">
+                  {responseModel.errors.toUpperCase()}
+                </p>
+              </div>
+              <div className="unvalidCertificateTitle">
+                <h3>Motivo:</h3>
+                <p className="uvColor">
+                  <span id="cert_no">{responseModel.detail}</span>
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
       <Modal isVisible={showModal} onClose={() => setShowModal(false)}>
         <div

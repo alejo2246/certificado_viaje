@@ -5,7 +5,6 @@ const Home = () => {
 
   const handleScroll = () => {
     const value = window.scrollY;
-    console.log(value);
     setScrollValue(value);
   };
 

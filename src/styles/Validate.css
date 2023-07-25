@@ -1,6 +1,7 @@
 .validateSection {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   text-align: center; /* Cambiado a 'center' para centrar el contenido */
   padding: 40px 0;
 }
@@ -21,51 +22,39 @@
   text-align: center;
 }
 
-.container {
+.containerValidate {
   max-width: 600px;
   padding: 20px;
+  margin: 0 auto;
 }
 
-.container .validateButton {
-  margin-top: 20px;
-  display: inline-block; /* Cambiado a inline-block */
-  border: 1px solid #ddd;
-  background: #ddd;
-  border-radius: 12px;
-}
-
-.container .validateAnimation {
+.containerValidate .validateAnimation {
   display: flex;
   padding-top: 20px;
   justify-content: center;
 }
 
-.validateButton .button {
-  position: relative;
-  display: inline-flex;
+.submitBtValidation {
+  margin-top: 20px;
+  display: inline-block; /* Cambiado a inline-block */
+  background: #ddd;
+  border-radius: 12px;
   text-decoration: none;
   text-transform: uppercase;
   color: #000;
   padding: 10px;
   font-weight: 500;
-  justify-content: center;
   border: none;
-  background-color: transparent;
+  background-color: #ddd;
   cursor: pointer;
   min-width: 200px; /* Ajusta el valor según lo necesites */
-  opacity: 0.75;
-  transition: 0.5s ease-in-out;
+  /* opacity: 0.75;
+  transition: 0.5s ease-in-out; */
 }
-.validateButton .button:hover {
-  opacity: 1;
-  transform: scale(1.1);
-}
-.validateButton:hover {
+
+.button:hover {
   background: #ccc;
   transform: scale(1.1);
-  transition: 0.5s ease-in-out;
-}
-.validateButton {
   transition: 0.5s ease-in-out;
 }
 
@@ -125,40 +114,92 @@
 .validButton {
   transition: 0.5s ease-in-out;
 }
-.containerValidCertificate {
+.containerValidateValidCertificate {
   padding: 20px;
 }
-.containerUnvalidCertificate{
-    padding: 20px;
+.containerValidateUnvalidCertificate {
+  padding: 20px;
 }
 .unvalidCertificateTitle {
-    font-weight: 700;
-    display: flex;
-    justify-content: center;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+}
+.uvColor {
+  color: red;
+  font-weight: 0;
+  padding-left: 10px;
+}
+.unvalidContainer {
+  padding: 20px;
+}
+.modalTitle {
+  display: flex;
+  justify-content: center;
+}
+.formContainer {
+  display: flex;
+}
+.errorFormMessage {
+  color: #ff0000;
+  font-size: 12px;
+  margin-left: 10px;
+}
+.errorEmailMessage {
+  color: #ff0000;
+  font-size: 12px;
+  margin-left: 10px;
+}
+.sectionLoader {
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: animationBg 10s linear infinite;
+}
+@keyframes animationBg {
+  0% {
+    filter: hue-rotate(0deg);
   }
-  .uvColor {
-    color: red;
-    font-weight: 0;
-    padding-left: 10px;
+  100% {
+    filter: hue-rotate(360deg);
   }
-  .unvalidContainer {
-    padding: 20px;
+}
+.loaderValidarCode {
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+.loaderValidarCode span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(calc(18deg * var(--var)));
+}
+.loaderValidarCode span::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00ff0a;
+  box-shadow: 0 0 10px #00ff0a, 0 0 20px #00ff0a, 0 0 40px #00ff0a,
+    0 0 60px #00ff0a, 0 0 80px #00ff0a, 0 0 100px #00ff0a;
+  animation: animateBalls 2s linear infinite;
+  animation-delay: calc(0.1s * var(--var));
+}
+@keyframes animateBalls {
+  0% {
+    transform: scale(1);
   }
-  .modalTitle{
-    display: flex;
-    justify-content: center;
+  80%,
+  100% {
+    transform: scale(0);
   }
-  .formContainer{
-    display: flex;
-    
-  }
-  .errorFormMessage {
-    color: #ff0000;
-    font-size: 12px;
-    margin-left: 10px;
-  }
-  .errorEmailMessage {
-    color: #ff0000;
-    font-size: 12px;
-    margin-left: 10px;
-  }
+}
