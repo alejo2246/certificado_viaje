@@ -1,5 +1,5 @@
 import React, { Children } from "react";
-import Modal from "react-modal";
+
 
 const Form = ({isVisible, onClose, children}) => {
   if (!isVisible) return null;
