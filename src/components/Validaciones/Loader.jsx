@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-const Loader = ({showLoader}) => {
+const Loader = ({ showLoader }) => {
   return (
     <section className={`sectionLoader ${!showLoader ? "hidden" : ""}`}>
       <div className="loaderValidarCode">
@@ -27,6 +27,6 @@ const Loader = ({showLoader}) => {
       </div>
     </section>
   );
-}
+};
 
-export default Loader
+export default Loader;
