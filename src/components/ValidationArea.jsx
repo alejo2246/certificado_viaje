@@ -1,11 +1,15 @@
 import React, { useState, useMemo } from "react";
 import { Fireworks } from "@fireworks-js/react";
+
 import Modal from "./Form";
 import Select from "react-select";
 import countryList from "react-select-country-list";
 import "../styles/Validate.css";
 import "animate.css";
 
+import axios from "axios";
+axios.defaults.headers.common["Access-Control-Allow-Origin"] =
+  "http://localhost:5173";
 const ValidationArea = () => {
   const [inputCode, setInputCode] = useState("");
   const [inputName, setInputName] = useState("");
@@ -39,15 +43,18 @@ const ValidationArea = () => {
     } else {
       setShowLoader(true);
       setErrorMessage("");
-      fetch("https://app.certificadodeviaje.com/api/addCertificado", {
-        method: "POST", // Especificamos el método HTTP que se utilizará
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ key_code: inputCode }),
-      })
-        .then((response) => console.log(response))
-        .then((data) => {
+      axios
+        .post(
+          `https://app.certificadodeviaje.com/api/addCertificado?key_code=${inputCode}`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
+        .then((response) => {
+          const data = response.data;
+          console.log(data);
           setShowLoader(false);
           if (data.success) {
             setResponseModel({
@@ -250,15 +257,12 @@ const ValidationArea = () => {
           </div>
         )}
         {isInvalidCode && (
-          <div
-            id="validationinfo"
-            className="containerUnvalidCertificate hidden"
-          >
+          <div id="validationinfo" className="containerUnvalidCertificate">
             <div className="container">
               <div className="unvalidCertificateTitle">
                 <h3>Validez del certificado:</h3>
                 <p className="uvColor" id="cert_validez">
-                  {responseModel.errors.toUpperCase()}
+                  {responseModel.error.toUpperCase()}
                 </p>
               </div>
               <div className="unvalidCertificateTitle">
@@ -383,14 +387,15 @@ const ValidationArea = () => {
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                   placeholder="Clave de licencia"
                   readOnly={true}
+                  value={inputCode ?? ""}
                 />
                 <input
                   type="text"
                   name="product"
                   id="product"
                   className="ml-2 mr-0 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                  placeholder="Producto"
                   readOnly={true}
+                  value={responseModel.producto ?? ""}
                 />
               </div>
             </div>
@@ -474,18 +479,15 @@ const ValidationArea = () => {
                 id="submitBtCertificado"
                 className="submitBtCertificate text-white focus:outline-none font-medium text-sm rounded-lg px-5 py-2.5 text-center"
                 onClick={validateForm}
-
               >
                 SOLICITAR CERTIFICADO
               </button>
             </div>
             <div className="formContainer justify-center">
-              {errorFormMessage &&(
-                <span className="errorNameMessage">
-                  {errorFormMessage}
-                </span>
+              {errorFormMessage && (
+                <span className="errorNameMessage">{errorFormMessage}</span>
               )}
-              </div>
+            </div>
           </form>
         </div>
       </Modal>
