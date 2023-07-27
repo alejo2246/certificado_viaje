@@ -180,7 +180,7 @@ const ValidationArea = () => {
             className={`submitBtValidation button ${
               showLoader ? "hidden" : ""
             }`}
-            onClick={() => handleValidation(event)}
+            onClick={() => handleValidation()}
           >
             VALIDAR CÓDIGO
           </button>
@@ -209,46 +209,65 @@ const ValidationArea = () => {
             <span style={{ "--var": "20" }}></span>
           </div>
         </section>
-        {isValidCode && (
-          <div id="validationinfo" className="containerValidCertificate">
-            <div className="container">
-              <div className="validCertificateTitle">
-                <h3 className="">Validez del certificado:</h3>
-                <p className="vColor" id="cert_validez">
-                  {responseModel.certificado}
+        <div className="h-screen">
+          <div className="w-80 mt-24 m-auto lg:mt-16 max-w-sm">
+            <img
+              src="./img/gift.png"
+              alt=""
+              className="rounded-t-2xl shadow-2xl lg:w-full 2xl:w-full 2xl:h-44 object-cover"
+            />
+            <div className="bg-white shadow-2xl rounded-b-3xl">
+              <h2 className="text-center text-gray-800 text-2xl font-bold pt-6">
+                Felicidades!
+              </h2>
+              <div className="w-5/6 m-auto">
+                <p className="text-center text-gray-500 pt-5">
+                  Has recibido un certificado de viaje de !
                 </p>
+
               </div>
               <div className="validCertificateTitle">
-                <h3 className="">Fecha de caducidad:</h3>
+                <h3 className="pt-5">Fecha de caducidad:</h3>
                 <p className="vColor">
                   <span id="cert_time">{responseModel.expiracion}</span>
                 </p>
               </div>
-              <div className="validCertificateTitle">
-                <h3 className="">Producto adquirido:</h3>
-                <p>
-                  <span className="vColor" id="cert_item">
-                    {responseModel.producto}
-                  </span>
-                </p>
+              <div className="grid grid-cols-3 w-72 lg:w-5/6 m-auto bg-indigo-50 mt-5 p-4 lg:p-4 rounded-2xl">
+                <div className="col-span-1">
+                  <img
+                    className="w-15 lg:w-12"
+                    src="./img/gifticon.png"
+                    alt="music icon"
+                  />
+                </div>
+                <div className="col-span-2 pt-4 uppercase">
+                  <p className="text-gray-800 font-bold lg:text-sm">
+                    example{responseModel.producto}
+                  </p>
+                </div>
               </div>
-              <div className="validContainer">
-                <button
-                  onClick={() => setShowModal(true)}
-                  id="_btn_generar_certificado"
-                  className="validButton "
-                >
-                  <span className="buttonSpan">GENERAR CERTIFICADO</span>
+              <div className="bg-blue-700 w-72 lg:w-5/6 m-auto mt-6 p-2 hover:bg-indigo-500 rounded-2xl  text-white text-center shadow-xl shadow-bg-blue-700">
+                <button className="lg:text-md text-lg font-bold uppercase">
+                  Generar certificado
                 </button>
               </div>
-              <div className="">
-                Al generar tu certificado tu código será activado y no podrá
-                volverse a usar. Tu certificado será valido para su uso en
-                nuestro sistema de reservas.
+              <div className="w-5/6 m-auto">
+
+                <p className="text-justify text-center text-gray-500 pt-5 lg:text-sm">
+                  Al generar tu certificado tu código será activado y no podrá
+                  volverse a usar. Tu certificado será valido para su uso en
+                  nuestro sistema de reservas.
+                </p>
+              </div>
+              <div className="text-center m-auto mt-6 w-full h-16">
+                <button className="text-gray-500 font-bold lg:text-sm hover:text-gray-900">
+                  Cancelar
+                </button>
               </div>
             </div>
           </div>
-        )}
+        </div>
+        {isValidCode && <div></div>}
         {isInvalidCode && (
           <div
             id="validationinfo"
@@ -474,18 +493,15 @@ const ValidationArea = () => {
                 id="submitBtCertificado"
                 className="submitBtCertificate text-white focus:outline-none font-medium text-sm rounded-lg px-5 py-2.5 text-center"
                 onClick={validateForm}
-
               >
                 SOLICITAR CERTIFICADO
               </button>
             </div>
             <div className="formContainer justify-center">
-              {errorFormMessage &&(
-                <span className="errorNameMessage">
-                  {errorFormMessage}
-                </span>
+              {errorFormMessage && (
+                <span className="errorNameMessage">{errorFormMessage}</span>
               )}
-              </div>
+            </div>
           </form>
         </div>
       </Modal>

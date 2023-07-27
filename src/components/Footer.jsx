@@ -47,17 +47,17 @@ const Footer = () => {
       </div>
       <ul className="social-icons">
         <li className="li">
-          <a href="#">
+          <a href="https://www.instagram.com/vip.vacaciones/">
             <BsInstagram />
           </a>
         </li>
         <li className="li">
-          <a href="#">
+          <a href="https://www.facebook.com/vipvacacionesoficial">
             <BsFacebook />
           </a>
         </li>
         <li className="li">
-          <a href="#">
+          <a href="https://www.youtube.com/channel/UCCfc6e6H17hpR8qVBS7PR_A">
             <BsYoutube />
           </a>
         </li>
