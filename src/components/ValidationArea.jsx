@@ -130,7 +130,7 @@ const ValidationArea = () => {
             className={`submitBtValidation button ${
               showLoader ? "hidden" : ""
             }`}
-            onClick={() => handleValidation()}
+            onClick={() => handleValidation(event)}
           >
             VALIDAR CÓDIGO
           </button>
@@ -176,90 +176,16 @@ const ValidationArea = () => {
                 .
               </div>
             </div>
-            <div className="">
-              <div className="formContainer">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block mb-2 text-sm font-medium text-gray-900"
-                  >
-                    País
-                  </label>
-                  <Select
-                    type="select"
-                    name="country"
-                    id="country"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-44"
-                    options={options}
-                    value={value}
-                    onChange={changeHandler}
-                  />
-                </div>
-                <div className="">
-                  <label
-                    htmlFor="name"
-                    className="block mb-2 ml-2 text-sm font-medium text-gray-900"
-                  >
-                    Ciudad
-                  </label>
-                  <input
-                    type="text"
-                    name="city"
-                    id="city"
-                    className={`inputCity ${
-                      errorCityMessage
-                        ? "error ml-2 bg-gray-50 border border-red-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                        : "ml-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    }`}
-                    placeholder="Ciudad"
-                    required
-                    value={inputCity}
-                    onChange={(e) => setInputCity(e.target.value)}
-                    onKeyUp={formCityValidation}
-                  />
-                  {errorCityMessage && (
-                    <span className="errorNameMessage">{errorCityMessage}</span>
-                  )}
-                </div>
-                <div className="ml-2">
-                  <label
-                    htmlFor="name"
-                    className="block mb-2 ml-2 text-sm font-medium text-gray-900"
-                  >
-                    Teléfono
-                  </label>
-                  <input
-                    type="text"
-                    name="phone"
-                    id="phone"
-                    className={`inputPhone ${
-                      errorPhoneMessage
-                        ? "error ml-2 bg-gray-50 border border-red-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                        : "ml-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    }`}
-                    placeholder="Telefono"
-                    required
-                    value={inputPhone}
-                    onChange={(e) => setInputPhone(e.target.value)}
-                    onKeyUp={formPhoneValidation}
-                  />
-                  {errorPhoneMessage && (
-                    <span className="errorLastNameMessage">
-                      {errorPhoneMessage}
-                    </span>
-                  )}
-                </div>
-              </div>
-            </div>
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <button
-                id="submitBtCertificado"
-                className="submitBtCertificate text-white focus:outline-none font-medium text-sm rounded-lg px-5 py-2.5 text-center"
-                onClick={validateForm}
+          </div>
+        </div>
+      )}
 
-              >
-                SOLICITAR CERTIFICADO
-              </button>
+      {mailSentError && (
+        <div className="row justify-content-center pt-20">
+          <div className="menu-content pb-30 col-lg-8">
+            <div className="title text-center">
+              <h3 className="mb-10 yes-valid">¡Ha ocurrido un error!</h3>
+              <p>El certificado no ha podido generarse.</p>
             </div>
           </div>
         </div>
