@@ -8,8 +8,13 @@ import "../styles/Validate.css";
 import "animate.css";
 
 import axios from "axios";
+import ValidCertificate from "./Validaciones/ValidCertificate";
+import InvalidCertificate from "./Validaciones/InvalidCertificate";
+import Loader from "./Validaciones/Loader";
+
 axios.defaults.headers.common["Access-Control-Allow-Origin"] =
   "http://localhost:5173";
+
 const ValidationArea = () => {
   const [inputCode, setInputCode] = useState("");
   const [inputName, setInputName] = useState("");
@@ -192,88 +197,14 @@ const ValidationArea = () => {
             VALIDAR CÓDIGO
           </button>
         </form>
-        <section className={`sectionLoader ${!showLoader ? "hidden" : ""}`}>
-          <div className="loaderValidarCode">
-            <span style={{ "--var": "1" }}> </span>
-            <span style={{ "--var": "2" }}></span>
-            <span style={{ "--var": "3" }}></span>
-            <span style={{ "--var": "4" }}></span>
-            <span style={{ "--var": "5" }}></span>
-            <span style={{ "--var": "6" }}></span>
-            <span style={{ "--var": "7" }}></span>
-            <span style={{ "--var": "8" }}></span>
-            <span style={{ "--var": "9" }}></span>
-            <span style={{ "--var": "10" }}></span>
-            <span style={{ "--var": "11" }}></span>
-            <span style={{ "--var": "12" }}></span>
-            <span style={{ "--var": "13" }}></span>
-            <span style={{ "--var": "14" }}></span>
-            <span style={{ "--var": "15" }}></span>
-            <span style={{ "--var": "16" }}></span>
-            <span style={{ "--var": "17" }}></span>
-            <span style={{ "--var": "18" }}></span>
-            <span style={{ "--var": "19" }}></span>
-            <span style={{ "--var": "20" }}></span>
-          </div>
-        </section>
+        <Loader showLoader={showLoader} />
         {isValidCode && (
-          <div id="validationinfo" className="containerValidCertificate">
-            <div className="container">
-              <div className="validCertificateTitle">
-                <h3 className="">Validez del certificado:</h3>
-                <p className="vColor" id="cert_validez">
-                  {responseModel.certificado}
-                </p>
-              </div>
-              <div className="validCertificateTitle">
-                <h3 className="">Fecha de caducidad:</h3>
-                <p className="vColor">
-                  <span id="cert_time">{responseModel.expiracion}</span>
-                </p>
-              </div>
-              <div className="validCertificateTitle">
-                <h3 className="">Producto adquirido:</h3>
-                <p>
-                  <span className="vColor" id="cert_item">
-                    {responseModel.producto}
-                  </span>
-                </p>
-              </div>
-              <div className="validContainer">
-                <button
-                  onClick={() => setShowModal(true)}
-                  id="_btn_generar_certificado"
-                  className="validButton "
-                >
-                  <span className="buttonSpan">GENERAR CERTIFICADO</span>
-                </button>
-              </div>
-              <div className="">
-                Al generar tu certificado tu código será activado y no podrá
-                volverse a usar. Tu certificado será valido para su uso en
-                nuestro sistema de reservas.
-              </div>
-            </div>
-          </div>
+          <ValidCertificate
+            responseModel={responseModel}
+            setShowModal={setShowModal}
+          />
         )}
-        {isInvalidCode && (
-          <div id="validationinfo" className="containerUnvalidCertificate">
-            <div className="container">
-              <div className="unvalidCertificateTitle">
-                <h3>Validez del certificado:</h3>
-                <p className="uvColor" id="cert_validez">
-                  {responseModel.error.toUpperCase()}
-                </p>
-              </div>
-              <div className="unvalidCertificateTitle">
-                <h3>Motivo:</h3>
-                <p className="uvColor">
-                  <span id="cert_no">{responseModel.detail}</span>
-                </p>
-              </div>
-            </div>
-          </div>
-        )}
+        {isInvalidCode && <InvalidCertificate responseModel={responseModel} />}
       </div>
       <Modal isVisible={showModal} onClose={() => setShowModal(false)}>
         <div
