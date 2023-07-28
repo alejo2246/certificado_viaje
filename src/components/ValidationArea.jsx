@@ -23,7 +23,7 @@ const ValidationArea = () => {
   const [showFire, setShowFire] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [mailSent, setMailSent] = useState(false);
-  const [mailSentError, setMailSentError] = useState(false);
+  const [mailSentError, setMailSentError] = useState(true);
 
   const [isValidCode, setIsValidCode] = useState(false);
   const [isInvalidCode, setIsInvalidCode] = useState(false);
