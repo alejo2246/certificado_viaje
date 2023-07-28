@@ -154,26 +154,35 @@ const ValidationArea = () => {
         />
       </Modal>
       {mailSent && (
-        <div className="row justify-content-center pt-20">
-          <div className="menu-content pb-30 col-lg-8">
-            <div className="title text-center">
-              <h3 className="mb-10 yes-valid">¡FELICIDADES!</h3>
-              <p style={{ fontSize: "20px", fontWeight: "900" }}>
-                Su certificado ha sido generado.
-              </p>
-            </div>
-
-            <div className="col-lg-12 form-group center-button">
-              <div className="alert-msg">
-                <strong>
-                  Todos los detalles han sido enviados a tu correo electrónico.
-                </strong>
-                <br />
-                <p style={{ fontSize: "12px" }}>
-                  El correo puede haber llegado a tu carpeta de Promociones o
-                  SPAM
-                </p>
-                .
+        <div class="h-screen">
+          <div class="m-auto mt-24 w-100 max-w-sm lg:mt-16">
+            <div
+              class="rounded-b border-t-4 border-teal-500 bg-teal-100 px-4 py-3 text-teal-900 shadow-md"
+              role="alert"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="mr-4 mt-4 h-10 w-full text-teal-600"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+                />
+              </svg>
+              <div class="mt-4 flex justify-center">
+                <div>
+                  <p class="flex justify-center font-bold">
+                    Tu mensaje ha sido enviado.
+                  </p>
+                  <p class="text-sm">
+                    Asegurate de revisar tu carpeta de SPAM.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -181,11 +190,37 @@ const ValidationArea = () => {
       )}
 
       {mailSentError && (
-        <div className="row justify-content-center pt-20">
-          <div className="menu-content pb-30 col-lg-8">
-            <div className="title text-center">
-              <h3 className="mb-10 yes-valid">¡Ha ocurrido un error!</h3>
-              <p>El certificado no ha podido generarse.</p>
+        <div class="h-screen">
+          <div class="m-auto mt-24 w-100 max-w-sm lg:mt-16">
+            <div
+              class="rounded-b border-t-4 border-red-500 bg-red-100 px-4 py-3 text-red-900 shadow-md"
+              role="alert"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="mt-4 w-full h-10"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+
+              <div class="mt-4 flex justify-center">
+                <div>
+                  <p class="flex justify-center font-bold">
+                    Tu mensaje no ha sido enviado.
+                  </p>
+                  <p class="text-sm">
+                    Por favor, revisa los campos e intenta de nuevo.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
