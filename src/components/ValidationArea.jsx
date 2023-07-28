@@ -154,32 +154,32 @@ const ValidationArea = () => {
         />
       </Modal>
       {mailSent && (
-        <div class="">
-          <div class="m-auto mt-24 w-100 max-w-sm lg:mt-16">
+        <div className="">
+          <div className="m-auto mt-24 w-100 max-w-sm lg:mt-16">
             <div
-              class="rounded-b border-t-4 border-teal-500 bg-teal-100 px-4 py-3 text-teal-900 shadow-md"
+              className="rounded-b border-t-4 border-teal-500 bg-teal-100 px-4 py-3 text-teal-900 shadow-md"
               role="alert"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 stroke="currentColor"
-                class="mr-4 mt-4 h-10 w-full text-teal-600"
+                className="mr-4 mt-4 h-10 w-full text-teal-600"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
                 />
               </svg>
-              <div class="mt-4 flex justify-center">
+              <div className="mt-4 flex justify-center">
                 <div>
-                  <p class="flex justify-center font-bold">
+                  <p className="flex justify-center font-bold">
                     Tu mensaje ha sido enviado.
                   </p>
-                  <p class="text-sm">
+                  <p className="text-sm">
                     Asegurate de revisar tu carpeta de SPAM.
                   </p>
                 </div>
@@ -190,33 +190,33 @@ const ValidationArea = () => {
       )}
 
       {mailSentError && (
-        <div class="">
-          <div class="m-auto mt-24 w-100 max-w-sm lg:mt-16">
+        <div className="">
+          <div className="m-auto mt-24 w-100 max-w-sm lg:mt-16">
             <div
-              class="rounded-b border-t-4 border-red-500 bg-red-100 px-4 py-3 text-red-900 shadow-md"
+              className="rounded-b border-t-4 border-red-500 bg-red-100 px-4 py-3 text-red-900 shadow-md"
               role="alert"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 stroke="currentColor"
-                class="mt-4 w-full h-10"
+                className="mt-4 w-full h-10"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   d="M6 18L18 6M6 6l12 12"
                 />
               </svg>
 
-              <div class="mt-4 flex justify-center">
+              <div className="mt-4 flex justify-center">
                 <div>
-                  <p class="flex justify-center font-bold">
+                  <p className="flex justify-center font-bold">
                     Tu mensaje no ha sido enviado.
                   </p>
-                  <p class="text-sm">
+                  <p className="text-sm">
                     Por favor, revisa los campos e intenta de nuevo.
                   </p>
                 </div>
