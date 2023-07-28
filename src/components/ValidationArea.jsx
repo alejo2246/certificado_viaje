@@ -22,11 +22,11 @@ const ValidationArea = () => {
   const [responseModel, setResponseModel] = useState({});
   const [showFire, setShowFire] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [mailSent, setMailSent] = useState(false);
-  const [mailSentError, setMailSentError] = useState(false);
+  const [mailSent, setMailSent] = useState(true);
+  const [mailSentError, setMailSentError] = useState(true);
 
-  const [isValidCode, setIsValidCode] = useState(false);
-  const [isInvalidCode, setIsInvalidCode] = useState(false);
+  const [isValidCode, setIsValidCode] = useState(true);
+  const [isInvalidCode, setIsInvalidCode] = useState(true);
 
   const handleValidation = (e) => {
     e.preventDefault();
@@ -154,7 +154,7 @@ const ValidationArea = () => {
         />
       </Modal>
       {mailSent && (
-        <div class="h-screen">
+        <div class="">
           <div class="m-auto mt-24 w-100 max-w-sm lg:mt-16">
             <div
               class="rounded-b border-t-4 border-teal-500 bg-teal-100 px-4 py-3 text-teal-900 shadow-md"
@@ -190,7 +190,7 @@ const ValidationArea = () => {
       )}
 
       {mailSentError && (
-        <div class="h-screen">
+        <div class="">
           <div class="m-auto mt-24 w-100 max-w-sm lg:mt-16">
             <div
               class="rounded-b border-t-4 border-red-500 bg-red-100 px-4 py-3 text-red-900 shadow-md"
